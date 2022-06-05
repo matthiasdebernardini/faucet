@@ -11,3 +11,4 @@ RPC_SOCKET=/path/to/lightning-rpc
 flask run
 ```
 # minimint_helper
+# minimint_helper
