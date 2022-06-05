@@ -1,10 +1,11 @@
-"""
-Generate invoice on one daemon and pay it on the other
-"""
 import os
+
+from flask import Flask
 from lightning import LightningRpc
 
-l = LightningRpc(os.environ["RPC_SOCKET"])
+rpc = LightningRpc(os.environ["RPC_SOCKET"])
+app = Flask(__name__)
 
-info = l.getinfo()
-print(info)
+@app.route("/")
+def getinfo():
+    return str(rpc.getinfo())
