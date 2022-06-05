@@ -9,19 +9,19 @@ rpc = LightningRpc(os.environ['RPC_SOCKET'])
 app = Flask(__name__)
 QRcode(app)
 
-@app.route('/getinfo')
-def getinfo():
-    return str(rpc.getinfo())
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     invoice = None
     pay_result = None
 
-    # set invoice if that was requested
     if request.method == 'POST':
-        amount = request.form['amount']
-        print(request.form)
-        invoice = rpc.invoice(amount, str(random.random()), 'test')
-
-    return render_template('index.html', name='justin', invoice=invoice)
+        # create invoice
+        if 'amount' in request.form:
+            amount = request.form['amount']
+            invoice = rpc.invoice(amount, str(random.random()), 'test')
+        # pay invoice
+        if 'invoice' in request.form:
+            pay_result = rpc.pay(request.form['invoice'])
+             
+    return render_template('index.html', name='justin', 
+        invoice=invoice, pay_result=pay_result)
