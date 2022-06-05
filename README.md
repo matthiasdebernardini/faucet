@@ -10,3 +10,4 @@ FLASK_DEBUG=true
 RPC_SOCKET=/path/to/lightning-rpc
 flask run
 ```
+# minimint_helper
