@@ -5,6 +5,7 @@
 
 {% if invoice %}
   <img style="height: 200pxm; width: 200px;" src="{{ qrcode(invoice) }}">
+  <div>{{ invoice }}</div>
 {% endif %}
 
 <form method="post">
@@ -16,7 +17,7 @@
 <h1>Pay Invoice</h1>
 
 {% if pay_result %}
-  <pre>{pay_result}</pre>
+  <pre>{{ pay_result }}</pre>
 {% endif %}
 
 <form method="post">
