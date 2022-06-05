@@ -7,8 +7,7 @@ cd minimint_helper
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-export RPC_SOCKET=/path/to/lightning-rpc
-flask run --host=0.0.0.0
+RPC_SOCKET=/path/to/lightning-rpc flask run --host=0.0.0.0
 ```
 
 From your minimint directory:
