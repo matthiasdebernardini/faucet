@@ -1,0 +1,18 @@
+<!doctype html>
+<title>Fedimint Helper</title>
+
+<h1>Create Invoice</h1>
+
+{% if invoice %}
+  <img style="height: 200pxm; width: 200px;" src="{{ qrcode(invoice) }}">
+{% endif %}
+
+<form method="post">
+  <label for="amount">How much:</label><br>
+  <input type="text" id="amount" name="amount"><br>
+  <input type="submit" value="Submit">
+</form> 
+
+
+
+
