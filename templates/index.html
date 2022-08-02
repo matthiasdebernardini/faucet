@@ -1,18 +1,10 @@
 <!doctype html>
 <title>Fedimint Helper</title>
 
-<h1>Create Invoice</h1>
+<h1>Join Federation</h1>
 
-{% if invoice %}
-  <img style="height: 200pxm; width: 200px;" src="{{ qrcode(invoice) }}">
-  <div>{{ invoice }}</div>
-{% endif %}
+<img style="height: 200px; width: 200px;" src={{url_for('static', filename='connect.png')}}>
 
-<form method="post">
-  <label for="amount">How much:</label><br>
-  <input type="text" id="amount" name="amount"><br>
-  <input type="submit" value="Submit">
-</form> 
 
 <h1>Pay Invoice</h1>
 
@@ -27,5 +19,15 @@
 </form> 
 
 
+<h1>Create Invoice</h1>
 
+{% if invoice %}
+  <img style="height: 200pxm; width: 200px;" src="{{ qrcode(invoice) }}">
+  <div>{{ invoice }}</div>
+{% endif %}
 
+<form method="post">
+  <label for="amount">How much:</label><br>
+  <input type="text" id="amount" name="amount"><br>
+  <input type="submit" value="Submit">
+</form> 

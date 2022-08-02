@@ -1,5 +1,6 @@
 import os
 import random
+import json
 
 from flask_qrcode import QRcode
 from flask import Flask, render_template, request
@@ -21,8 +22,8 @@ def index():
             invoice = rpc.invoice(amount, str(random.random()), 'test')['bolt11']
         # pay invoice
         if 'invoice' in request.form:
-            pay_result = rpc.pay(request.form['invoice'])
-            pay_result = json.dumps(pay_result, sort_keys=True, indent=4, separators=(',', ': ')
+            pay_result = str(rpc.pay(request.form['invoice']))
              
     return render_template('index.html', name='justin', 
         invoice=invoice, pay_result=pay_result)
+
