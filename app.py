@@ -18,7 +18,8 @@ def index():
     if request.method == 'POST':
         # create invoice
         if 'amount' in request.form:
-            amount = request.form['amount']
+            # convert to sats
+            amount = int(request.form['amount']) * 1000
             invoice = rpc.invoice(amount, str(random.random()), 'test')['bolt11']
         # pay invoice
         if 'invoice' in request.form:
