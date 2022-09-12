@@ -7,6 +7,7 @@ from flask import Flask, render_template, request
 from lightning import LightningRpc
 
 rpc = LightningRpc(os.environ['RPC_SOCKET'])
+connect_str = os.environ['CONNECT_STRING']
 app = Flask(__name__)
 QRcode(app)
 
@@ -26,5 +27,5 @@ def index():
             pay_result = str(rpc.pay(request.form['invoice']))
              
     return render_template('index.html', name='justin', 
-        invoice=invoice, pay_result=pay_result)
+        invoice=invoice, pay_result=pay_result, connect_str=connect_str)
 
