@@ -10,6 +10,7 @@
 
 <img style="height: 200px; width: 200px;" src="{{ qrcode(connect_str) }}">
 
+<pre>{{ connect_str }}</pre>
 
 <h1>Pay Invoice</h1>
 
@@ -28,7 +29,7 @@
   <label for="invoice">Invoice:</label><br>
   <input type="text" id="invoice" name="invoice"><br>
   <input type="submit" value="Submit">
-</form> 
+</form>
 
 
 <h1>Create Invoice</h1>
@@ -42,7 +43,7 @@
   <label for="amount">How much:</label><br>
   <input type="text" id="amount" name="amount"><br>
   <input type="submit" value="Submit">
-</form> 
+</form>
 
   <script type="module">
     var scan = document.getElementById('scan');
