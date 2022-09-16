@@ -1,16 +1,17 @@
 <html>
 	<head>
 		{% if title %}
-		<title>{{ title }} - microblog</title>
+		<title>{{ title }} - Fedimint Test Faucet</title>
 		{% else %}
-		<title>microblog</title>
+		<title>Fedimint Test Faucet</title>
 		{% endif %}
 	</head>
 	<body>
 		<div>
-			Microblog:
-			<a href="/index">Home</a>
-			<a href="/login">Login</a>
+			Fedimint Test Faucet:
+			<a href="/index">Intro</a>
+			<a href="/pay">Pay</a>
+			<a href="/request">Request</a>
 		</div>
 		<hr>
 		{% with messages = get_flashed_messages() %}
