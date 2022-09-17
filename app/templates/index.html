@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Hi, {{ user.username }}!</h1>
-{% for post in posts %}
-<div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-{% endfor %}
+<h1>Join Us!</h1>
+<img style="height: 200px; width: 200px;" src="{{ qrcode(connect_str) }}">
+<pre>{{ connect_str }}</pre>
+<div>
+    <p>Helpful Links</p>
+    <ul>
+        <li><a href="https://discord.gg/Aa2GCWAb">Discord</a></li>
+        <li><a href="https://github.com/fedimint">Github</a></li>
+        <li><a href="https://fedimint.org">Fedimint Website</a></li>
+    </ul>
+</div>
 {% endblock %}
