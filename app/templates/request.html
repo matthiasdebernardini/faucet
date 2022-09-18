@@ -4,11 +4,17 @@
 {% block content %}
 <h1>Request</h1>
 <hr>
+<script>
+	function outputUpdate(amount) {
+		document.querySelector('#selected-amount').value = amount;
+	}
+</script>
 <form action="" method="post" novalidate>
 	{{ form.hidden_tag() }}
 	<p>
-		{{ form.amount.label }}<br>
-		{{ form.amount(size=32) }}<br>
+		{{ form.amount.label }}:
+		{{ form.amount(min=0, max=1000, oninput="outputUpdate(value)") }}
+		<output for="amount" id="selected-amount">{{ form.amount.data }}</output>
 		{% for error in form.amount.errors %}
 		<span style="color: red;">[{{ error }}]</span>
 		{% endfor %}

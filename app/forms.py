@@ -1,11 +1,11 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, DecimalRangeField
 from wtforms.validators import DataRequired
 
 class RequestForm(FlaskForm):
-    amount = StringField('Sats', validators=[DataRequired()])
+    amount = DecimalRangeField('Slide left/right to enter amount in sats', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 class PayForm(FlaskForm):
-    invoice = StringField('Invoice', validators=[DataRequired()])
+    invoice = StringField('Enter BOLT11 string', validators=[DataRequired()])
     submit = SubmitField('Submit')
